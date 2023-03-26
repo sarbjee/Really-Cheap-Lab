@@ -8,10 +8,11 @@ rem Q1 - basic select columns with headers
 
 select first_name as "FIRST_NAME",last_name as"LAST_NAME" 
 from rcv_agent
-WHERE agent_speciality in('US','EU') and  agent_level in('III' ,'IV') 
+WHERE agent_speciality not in('CA') and  agent_level in('III' ,'IV') 
 order by 2
 ;
 
+rem Q2
 select tour_description as"TOUR_DESCRIPTION"
 FROM rcv_vacation_tour
 WHERE rating_code in('E','M') AND tour_description like '%Paris%' 
@@ -25,14 +26,6 @@ WHERE country in('Canada','United States')
 order by 1,2;
 clear columns
 
-
-rem Q4 
-
-
-
-rem Q5 
-
-rem insert solution here!
 
 spool off
 
