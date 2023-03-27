@@ -1,11 +1,10 @@
 SQL> 
 SQL> rem Q1 - basic select columns with headers
 SQL> 
-SQL> select first_name as "FIRST_NAME",last_name as"LAST_NAME"
+SQL> select first_name as "FIRST_NAME", last_name as "LAST_NAME"
   2  from rcv_agent
-  3  WHERE agent_speciality in('US','EU') and  agent_level in('III' ,'IV')
-  4  order by 2
-  5  ;
+  3  WHERE agent_speciality not in ('CA') and agent_level in ('III' ,'IV')
+  4  order by 2;
 
 FIRST_NAME LAST_NAME                                                                                                                
 ---------- ----------                                                                                                               
@@ -13,9 +12,10 @@ Anna       Chapman
 Valerie    Plume                                                                                                                    
 
 SQL> 
-SQL> select tour_description as"TOUR_DESCRIPTION"
+SQL> rem Q2
+SQL> select tour_description as "TOUR_DESCRIPTION"
   2  FROM rcv_vacation_tour
-  3  WHERE rating_code in('E','M') AND tour_description like '%Paris%'
+  3  WHERE rating_code in ('E','M') AND tour_description like '%Paris%'
   4  order by 1;
 
 TOUR_DESCRIPTION                                                                                                                    
@@ -26,9 +26,9 @@ Paris Highlights
 SQL> 
 SQL> rem Q3
 SQL> column "COUNTRY" format A30
-SQL> select country as"COUNTRY",dest_description as "DEST_DESCRIPTION"
+SQL> select country as "COUNTRY", dest_description as "DEST_DESCRIPTION"
   2  FROM rcv_destination
-  3  WHERE country in('Canada','United States')
+  3  WHERE country in ('Canada','United States')
   4  order by 1,2;
 
 COUNTRY                        DEST_DESCRIPTION                                                                                     
@@ -63,13 +63,5 @@ United States                  San Andreas Fault Jeep Tour from Palm Desert
 
 SQL> clear columns
 SQL> 
-SQL> 
-SQL> rem Q4
-SQL> 
-SQL> 
-SQL> 
-SQL> rem Q5
-SQL> 
-SQL> rem insert solution here!
 SQL> 
 SQL> spool off
