@@ -11,6 +11,7 @@ from rcv_agent
 WHERE agent_speciality in('US','EU') and  agent_level in('III' ,'IV') 
 order by 2
 ;
+rem Q2
 
 select tour_description as"TOUR_DESCRIPTION"
 FROM rcv_vacation_tour
